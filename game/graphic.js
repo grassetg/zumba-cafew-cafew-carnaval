@@ -25,7 +25,7 @@ function init()
     noGround = [];
     ground = new Ground(0xffffff, WIDTH, HEIGHT, 10);
 
-    var startPosition = ground[Math.floor(Math.random()*colors.length)];
+    var startPosition = ground[Math.floor(Math.random()*ground.length)];
 
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(startPosition[0], startPosition[1]), 0);
     scene.add(player1.graphic);
