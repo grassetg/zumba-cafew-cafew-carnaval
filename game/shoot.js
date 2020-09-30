@@ -108,6 +108,7 @@ function player_falling() {
     var y = player1.graphic.position.y | 0;
     var length = noGround.length;
     var element = null;
+    var lifeModified = false
 
     for (var i = 0; i < length; i++) {
         element = noGround[i];
@@ -125,7 +126,21 @@ function player_falling() {
             && (x < mtileX)
             && (y > tileY)
             && (y < mtileY)) {
-            player1.dead();
+
+            if (!lifeModified && player1.life - 1 === 0) {
+                player1.dead();
+            }
+
+            player1.life--;
+            player1.displayInfo()
+            lifeModified = true;
+
+            var newPosition = ground[Math.floor(Math.random()*ground.length)];
+            player1.position.x = newPosition[0];
+            player1.position.y = newPosition[1];
+
+
+            break;
         }
     }
 
