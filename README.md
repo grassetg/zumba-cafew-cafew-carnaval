@@ -15,11 +15,10 @@ A video game with three.js
 - [X] : As a player, I want to a map with a tiles
 - [X] : As a player, I want to fall when I have no tile under me
 - [X] : As a player, I want to restart the game, if I fall
-
+- [X] : As a player, I want to turn right/left to be able to change my direction (right/left)
 
 **TO DO**
 
-- [ ] : As a player, I want to turn right/left to be able to change my direction (right/left)
 - [ ] : As a player, I want a better light to be able to see all the map
 - [ ] : As a player, I don't want any error in the Console bar 
 - [ ] : As a player, I want to be stop when I go into the left wall
