@@ -24,8 +24,10 @@ function init()
 
     noGround = [];
     ground = new Ground(0xffffff, WIDTH, HEIGHT, 10);
-    
-    player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
+
+    var startPosition = ground[Math.floor(Math.random()*colors.length)];
+
+    player1 = new Player("player1", 0xffff00, new THREE.Vector2(startPosition[0], startPosition[1]), 0);
     scene.add(player1.graphic);
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
@@ -34,6 +36,7 @@ function init()
 
 function Ground(color, size_x, size_y, nb_tile)
 {
+    ground = [];
     colors = Array(0xff0000, 0x00ff00, 0x0000ff, 0x000000);
 
     sizeOfTileX = size_x / nb_tile;
@@ -57,11 +60,14 @@ function Ground(color, size_x, size_y, nb_tile)
                 tmpGround.position.x = x;
                 tmpGround.position.y = y;
                 scene.add(tmpGround);
+                ground.push([x, y]);
             }
             else
                 noGround.push([x, y]);
         }
     }
+
+    return ground;
 }
 
 function Light(name, color, position)
