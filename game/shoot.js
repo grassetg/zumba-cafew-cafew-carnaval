@@ -52,6 +52,18 @@ function bullet_collision() {
             player1.bullets.splice(i, 1);
             i--;
         }
+
+        // Colission between bullets and ennemy
+        else if (Math.abs(player1.bullets[i].position.x) <= enemy.position.x - sizeOfTileX
+            && Math.abs(player1.bullets[i].position.x) >= enemy.position.x + sizeOfTileX
+            && Math.abs(player1.bullets[i].position.y) <= enemy.position.y - sizeOfTileY
+            && Math.abs(player1.bullets[i].position.y) >= enemy.position.y + sizeOfTileY) {
+            player2.dead();
+            scene.remove(player2.graphic)
+            scene.remove(player1.bullets[i]);
+            player1.bullets.splice(i, 1);
+            i--;
+        }
     }
 
 }

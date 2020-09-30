@@ -22,9 +22,10 @@ A video game with three.js
 - [X] : As a player, I don't want any error in the Console bar 
 - [X] : As a player, I want to see ennemy
 - [X] : As a ennemy, I want to move on one axe
+- [X] : As a player, I want to destroy ennemy when I shot them
 
 **TO DO**
 
-- [ ] : As a player, I want to destroy ennemy when I shot them
+
 - [ ] : As a player, I want to decrease my life when I am touch by an ennemy
 - [ ] : As a player, I want to decrease my life when I fall 
