@@ -32,12 +32,20 @@ function shoot() {
 function collisions() {
     bullet_collision();
     player_collision();
+    enemy_collision();
     player_falling();
 }
 
 function bullet_collision() {
-    //collision between bullet and walls
+    // the accuracy of the bullets
+
+    var nb_tile = 10;
+    var sizeOfTileX = WIDTH / nb_tile;
+    var sizeOfTileY = HEIGHT / nb_tile;
+
     for (var i = 0; i < player1.bullets.length; i++) {
+
+        //collision between bullet and walls
         if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
             Math.abs(player1.bullets[i].position.y) >= HEIGHT / 2) {
             scene.remove(player1.bullets[i]);
@@ -61,6 +69,22 @@ function player_collision() {
         player1.graphic.position.y -= y;
     if (y > HEIGHT)
         player1.graphic.position.y -= y - HEIGHT;
+
+}
+
+function enemy_collision() {
+    //collision between enemy and walls
+    var x = enemy.graphic.position.x + WIDTH / 2;
+    var y = enemy.graphic.position.y + HEIGHT / 2;
+
+    if (x > WIDTH)
+        enemy.graphic.position.x -= x - WIDTH;
+    if (x < 0)
+        enemy.graphic.position.x -= x;
+    if (y < 0)
+        enemy.graphic.position.y -= y;
+    if (y > HEIGHT)
+        enemy.graphic.position.y -= y - HEIGHT;
 
 }
 

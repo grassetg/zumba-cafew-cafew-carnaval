@@ -14,5 +14,14 @@ function update()
         player1.decelerate(moveDistance);
 
     player1.move();
+
+    if (enemy.isAccelerating) {
+        enemy.accelerate(moveDistance)
+    } else {
+        enemy.decelerate(moveDistance)
+    }
+
+    enemy.move()
     controls.update();
+
 }

@@ -30,8 +30,8 @@ function init()
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(startPosition[0], startPosition[1]), 0);
     scene.add(player1.graphic);
 
-    player2 = new Player("enemy", 0xff0000, new THREE.Vector2(50, 0), 0);
-    scene.add(player2.graphic)
+    enemy = new Enemy("enemy", 0xff0000, new THREE.Vector2(50, 0), 0);
+    scene.add(enemy.graphic)
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
@@ -75,11 +75,7 @@ function Ground(color, size_x, size_y, nb_tile)
 
 function Light(name, color, position)
 {
-    pointLight = new THREE.AmbientLight(color, 50, 350);
+    ambientLight = new THREE.AmbientLight(color, 50, 350);
 
-    pointLight.position.x = position.split(',')[0];
-    pointLight.position.y = position.split(',')[1];
-    pointLight.position.z = position.split(',')[2];
-
-    return pointLight;
+    return ambientLight;
 }
